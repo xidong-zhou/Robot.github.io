@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="bookmark" href="favicon.ico" type="image/x-icon"　/>
+<title>SLAM and Navigation Technology for Mobile Robots </title>
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.item img {
+  width: 600px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.item p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+</style>
+<style>
+h1 {
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 70px;
+  background-image: url(rvc.png);
+  background-size: cover;
+}
+
+p {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.picItem {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-right:20px;
+}
+
+.picItem p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+#layout-menu {
+  background-color:	#FCFCFC;
+  width: 200px;
+  height: 100%;
+}
+
+#layout-menu .main-menu {
+  margin: 20px 5px;
+  border-bottom: 1px solid 		#F2F2F2;
+}
+
+.menu-content div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#layout-menu div {
+  margin-top: 20px;
+}
+
+#layout-content {
+  padding: 0 15px;
+}
+.footer {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  background-color: #007BB5;
+}
+</style>
+
+<style>
+  body {
+    font-family: "Times New Roman", sans-serif;
+    font-size:20px;
+    margin: 0;
+  }
+</style>
+</head>
+
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+  <div class="menu-content">
+    <div>
+      <img src="ai.png" style="width: 80px; height: 80px;" />
+    </div>
+<!--    <div class="main-menu"> MENU </div>-->
+    <div class="menu-item"><a href="index.html" class="current">Home</a></div>
+    <div class="menu-item"><a href="https://github.com/">GitHub</a></div>
+    <div class="menu-item"><a href="http://robot.hnu.edu.cn/">RVC Lab</a></div>
+  </div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>移动机器人的SLAM与导航技术</h1>
+</div>
+<hr>
+<h2>关于此领域</h2>
+<p>移动机器人的SLAM（Simultaneous Localization and Mapping）与导航技术是实现机器人自主移动和环境感知的重要组成部分。
+  SLAM技术旨在让机器人在未知环境中同时建立地图和定位自身的位置。它通过使用传感器（如激光雷达、相机、惯性测量单元等）来感知周围环境，
+  并将感知到的数据与机器人自身的运动信息相结合。SLAM算法将这些信息进行处理和分析，以估计机器人的位置和姿态，并同时构建地图。
+  导航技术则是指机器人在已知地图的基础上规划路径和控制移动，以实现自主导航。
+  导航算法使用机器人的定位信息和目标位置，通过路径规划算法确定机器人应该采取的动作，以避开障碍物、遵循规划路径，并最终到达目标位置。导航技术还涉及机器人的控制系统，通过控制机器人的执行器（如轮子或关节）来实现移动。
+  总而言之，移动机器人的SLAM和导航技术是机器人实现自主移动和感知环境的关键技术，它们的发展和创新将为机器人在各种应用领域带来更高的自主性和智能性。
+</p>
+<!--<p style="text-align:center;">-->
+<!--    <img src=overallv1.png width="1000px" height="447px"></p>-->
+
+<div style="display: flex;">
+  <div class="picItem">
+    <img src=overview.png  width="800px" height="400px">
+    <p ></p>
+  </div>
+  <div class="picItem">
+    <img src=overview2.png  width="800px" height="405px">
+    <p ></p>
+  </div>
+</div>
+<hr>
+<h2>一些 Demos</h2>
+  <h3>(1)球形双模态空中机器人</h3>
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=roll_robot_1.png width="750px" height="350px">
+    <p >球形双模态空中机器人框架</p>
+  </div>
+
+</div>
+<p>空地双模态作机器人一般定义为同时具备空中飞行和地面运动的移动机器人，其可应用于军事侦察、密闭空间巡检、外星探索等各个方面,通过对空地双模态机器人系统的构建，可以满足复杂应用场景下的作业任务需求，提高机器人系统的智能化水平和解决实际问题能力。
+
+  <h3>(2)室内智能消毒机器人</h3>
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=indoor_robot_1.png width="650px" height="350px">
+    <p >智能消毒机器人框架</p>
+  </div>
+  <div class="picItem">
+    <img src=indoor_robot_2.png width="680px" height="350px">
+    <p >智能消毒机器人流程</p>
+  </div>
+  <div class="picItem">
+    <img src=indoor_robot_3.png width="600px" height="350px">
+    <p> 智能消毒机器人机构</p>
+  </div>
+
+</div>
+<p>防疫机器人消毒过程中可躲避动态障碍进行自主避让，并能精确走到预先设定的位置进行全方位消杀工作，且可通过防跌落传感器检测到可能导致跌落的地形，避免自身倾倒情况的发生，当检测到有人员进入消杀范围时，能主动关闭消杀设备防止对人员造成伤害。经测试，通过多传感器融合输出的实时定位精度可达到0.04m，为防疫机器人在不同场景下作业提供了高精度和高可靠性定位，对于智能防疫机器人在疫情防控应用具有重大现实意义。
+主要包括如下技术:
+
+<p><b>1.基于多传感器融合的定位技术</b>: 机器人的环境感知系统必须利用各种主动、被动传感器获取周围环境的信息，通过对传感器数据进行处理、融合、理解，实现机器人对环境中道路、障碍物的检测以及地形分类等，给智能防疫消杀机器人的自主导航、路径规划提供依据。</p>
+
+<p><b>2.基于图优化的SLAM算法</b>: 主要思路利用闭环检测来减少建图过程中的累积误差，通过激光测距仪等传感器测量的数据生成分辨率为5cm的实时栅格地图。算法整体可以分为两个部分：第一个部分称为Local SLAM, 该部分通过一帧帧的Laser Scan建立并维护一系列的Submap，而所谓的submap就是一系列的Grid Map。当再有新的Laser Scan中会通过Ceres Scan Matching的方法将其插入到子图中的最佳位置。但是submap会产生误差累积的问题，因此，算法的第二个部分，称为Global SLAM的部分，就是通过Loop Closure来进行闭环检测，来消除累积误差：当一个submap构建完成，也就是不会再有新的laser scan插入到该submap时，算法会将该submap加入到闭环检测中。</p>
+
+<p><b>3.基于动态窗口的局部路径规划算法</b>:局部规划方法主要采用的是动态窗口法,动态窗口法主要是在速度(v,w)空间中采样多组速度，并模拟机器人在这些速度下一定时间内的轨迹，在得到多组轨迹以后，对这些轨迹进行评价，选取最优轨迹所对应的速度来驱动机机器人运动。</p>
+
+  <h3>(3)空地协同机器人集群侦察系统</h3>
+  <div style="display: flex;">
+  <div class="picItem">
+    <img src=outdoor_robot_1.png width="600px" height="300px">
+    <p >无人系统框架</p>
+  </div>
+  <div class="picItem">
+    <img src=outdoor_robot_2.png width="650px" height="300px">
+    <p >无人系统流程</p>
+  </div>
+  <div class="picItem">
+    <img src=outdoor_robot_3.png width="600px" height="300px">
+    <p >无人系统机构</p>
+  </div>
+</div>
+<p>本系统主要由指控基础软件平台端以及空地协同机器人组成。机器人系统单元组采用空地协同模式，主要由自组网电台以及地面空中机器人集群组成。
+  整个系统结构采用集中式架构，即以指控端为中心节点构成通信网络，指控基础软件平台与空地一体化机器人集群通信，同时采用ROS2作为机器人系统的软件框架。
+  当一台无人侦察车发现嫌疑目标后，通过指控平台向其他无人侦察车发布嫌疑目标的经纬度数据，无人侦察车自主导航至目标点，并打开无人机起降平台，接收指控平台发布的协同跟踪指令，完成侦察跟踪等任务后，
+  无人机降落在无人侦察车的起降平台，并统一返回基地。
+主要包括如下技术:
+<p><b>1.多源融合定位</b>: 为实现无人侦察车在户外自主导航，首先需要知道自身的位姿信息。各个传感器获取的信息都存在一定的误差。与单传感器相比，运用多传感器数据融合技术在解决探测、跟踪和目标识别等问题方面，能够提高系统的可靠性和鲁棒性，增强数据的可信度，提高精度，扩展系统的时间、空间覆盖率，增加系统的实时性和信息利用率等。因此本项目采用多传感器融合算法，融合轮式里程计、IMU及BDS的传感器输出，估计机器人的3D姿势，从而减少测量中的总体误差，实现高精度的户外导航功能。</p>
+
+<p><b>2.全局路径规划</b>: 本项目针对侦察任务中存在多种维度地图的问题，提出了基于JPS算法的快速路径规划算法，在二维地图中使用JPS算法进行路径搜索，在三维地图中使用改进的JPS算法进行路径搜索。</p>
+
+<p><b>3.局部路径规划</b>: 为实现无人侦察车在执行巡检侦察任务时对动态障碍物进行避障的功能，因此需要设计局部路径跟踪算法，本项目中的局部避障方法主要采用的是基于DWA与人工势场法，在速度空间中采样多组速度，并模拟机器人在这些速度下一定时间内的轨迹，在得到多组轨迹以后，对这些轨迹进行评价，引入人工势场获得的合力作为一个速度权重，选取最优轨迹所对应的速度来驱动机机器人运动。</p>
+
+<p><b>4.目标检测</b>: 针对无人侦察车在可疑人员的检测任务中室外环境复杂，人脸识别困难、目标特征难以提取等难点，本项目利用PPYOLO目标检测与FaceNet人脸识别算法，对行人脸部进行检测与识别，若识别为嫌疑目标，根据PPYOLO检测出的人体位置坐标，利用卡尔曼滤波算法进行目标跟踪。</p>
+
+<hr>
+<h2>当前研究方向</h2>
+<ul>
+<div style="display: flex;">
+  <div class="picItem">
+    <img src=study1.png width="450px" height="300px">
+    <p >飞滚模态切换的运动控制算法研究</p>
+  </div>
+  <div class="picItem">
+    <img src=study2.png width="450px" height="300px">
+    <p >面向复杂场景的局部路径规划算法研究</p>
+  </div>
+
+</div>
+</ul>
+<hr>
+<h2>依托项目</h2>
+<ul>
+<li><p>面向重大疫情的应急防控救护智能机器人.（长沙市重大专项）</p>
+</li>
+<li><p>基于北斗的XXX技术.（军口项目）</p>
+</li>
+</ul>
+<hr>
+<h2>投稿的工作</h2>
+
+<!--<h3>Recent publications </h3>-->
+<hr>
+<h2>发表的成果</h2>
+<ol>
+<li><p>Zhou X , Zhong H , Zhang H ,et al.Current Status,Challenges,and Prospects for New Types of Aerial Robots[J].Engineering, 2024, 41(10):19-34.
+[<a href="Current Status, Challenges, and Prospects for New Types of Aerial Robots.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Zhou X , Zhong H , Zhang H ,et al.Optimization-Based Single Anchor UWB Positioning System for Mobile Robots[J].IEEE Transactions on Instrumentation and Measurement, 2024:73.
+[<a href="Optimization-Based_Single_Anchor_UWB_Positioning_System_for_Mobile_Robots.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Zhang H , X. Zhou , Zhong H ,et al., "A Dynamic Window-Based UWB-Odometer Fusion Approach for Indoor Positioning," in IEEE Sensors Journal, vol. 23, no. 3, pp. 2922-2931, 1 Feb.1, 2023.
+[<a href="A_Dynamic_Window-Based_UWB-Odometer_Fusion_Approach_for_Indoor_Positioning.pdf">pdf</a>]</p>
+</li>
+
+<li><p>周熙栋,张辉,陈波.非结构化场景下基于改进JPS算法的移动机器人路径规划[J].控制与决策, 2024, 39(2):474-482.
+[<a href="非结构化场景下基于改进JPS算法的移动机器人路径规划_周熙栋.pdf">pdf</a>]</p>
+</li>
+
+<li><p>汪湘川,张辉,陈波,等.基于扫描上下文优化的紧耦合激光SLAM方法[J].控制与决策, 2024, 39(10):3234-3242.
+[<a href="基于扫描上下文优化的紧耦合激光SLAM方法_汪湘川.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Zhang J , Zhang H , Zhou X ,et al., "A Graph-Based SLAM Method Assisted by Visual Marker in the Degenerate Scenes," 2023 International Conference on Advanced Robotics and Mechatronics (ICARM), Sanya, China, 2023, pp. 1-6.
+[<a href="A_Graph-Based_SLAM_Method_Assisted_by_Visual_Marker_in_the_Degenerate_Scenes.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Luo X , Zhang H , Zhou X ,et al., "An Adaptive Path Planning Method Based on the Frenét Frame," 2023 6th International Conference on Robotics, Control and Automation Engineering (RCAE), Suzhou, China, 2023, pp. 70-74.
+[<a href="An_Adaptive_Path_Planning_Method_Based_on_the_Frent_Frame.pdf">pdf</a>]</p>
+</li> 
+
+<li><p>Zhou X , Zhang H , Tan X ,et al., "A location method based on UWB for ward scene application," 2021 36th Youth Academic Annual Conference of Chinese Association of Automation (YAC), Nanchang, China, 2021, pp. 66-71.
+  [<a href="A_location_method_based_on_UWB_for_ward_scene_application.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Xu T , Zhang H , Zhou X ,et al., "A Weight Adaptive Kalman Filter Localization Method Based on UWB and Odometry," 2022 International Conference on Advanced Robotics and Mechatronics (ICARM), Guilin, China, 2022, pp. 956-961.
+[<a href="A_Weight_Adaptive_Kalman_Filter_Localization_Method_Based_on_UWB_and_Odometry.pdf">pdf</a>]</p>
+</li>
+
+<li><p>Tan X , Zhang H , Zhou X ,et al., "Research on Graph-Based SLAM for UVC Disinfection Robot," 2021 IEEE International Conference on Real-time Computing and Robotics (RCAR), Xining, China, 2021, pp. 1064-1069.
+[<a href="Research_on_Graph-Based_SLAM_for_UVC_Disinfection_Robot.pdf">pdf</a>]</p>
+</li>
+
+
+
+
+</ol>
+<p><b>Note</b>: * indicates the corresponding author.</p>
+<h2>项目组成员</h2>
+  <div style="display: flex;">
+    <div class="picItem">
+      <img src=zxd.jpg width="120px" height="150px">
+      <p >周熙栋（在读）</p>
+      <p >博士</p>
+    </div>
+    <div class="picItem">
+      <img src=xt.jpg width="120px" height="150px">
+      <p >徐涛（在读）</p>
+      <p >硕士二年级</p>
+    </div>
+    <div class="picItem">
+      <img src=zjqx.jpg width="120px" height="150px">
+      <p >张捷清心（在读）</p>
+      <p >硕士二年级</p>
+    </div>
+    <div class="picItem">
+      <img src=wxc.png width="120px" height="150px">
+      <p >汪湘川（在读）</p>
+      <p >硕士二年级</p>
+    </div>
+    <div class="picItem">
+      <img src=lxy.jpg width="120px" height="150px">
+      <p >罗鑫泳（在读）</p>
+      <p >硕士一年级</p>
+    </div>
+    <div class="picItem">
+      <img src=lt.jpg width="120px" height="150px">
+      <p >罗腾（在读）</p>
+      <p >硕士一年级</p>
+    </div>
+  </div>
+  <h2>学术&活动</h2>
+    <div style="display: flex;">
+      <div class="picItem">
+        <img src=bs.jpg width="400px" height="300px">
+        <p >学术竞赛</p>
+      </div>
+      <div class="picItem">
+        <img src=hy.jpg width="400px" height="300px">
+        <p >学术会议</p>
+      </div>
+      <div class="picItem">
+        <img src=hz.jpg width="400px" height="300px">
+        <p >校企合作</p>
+      </div>
+      <div class="picItem">
+        <img src=zh.jpg width="400px" height="300px">
+        <p >组会讨论</p>
+      </div>
+    </div>
+
+    <h2>实验设备&研发条件</h2>
+    <div style="display: flex;">
+      <div class="picItem">
+        <img src=base_robot1.png width="200px" height="300px">
+        <p >教育机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot2.png width="400px" height="300px">
+        <p >全向移动作业机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot3.png width="150px" height="300px">
+        <p >紫外线消毒机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot5.png width="250px" height="300px">
+        <p >移动测绘机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot6.png width="400px" height="300px">
+        <p >喷洒消毒机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot7.png width="150px" height="300px">
+        <p >双臂消毒机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot8.png width="250px" height="300px">
+        <p >室内外搬运机器人</p>
+      </div>
+      <div class="picItem">
+        <img src=base_robot9.png width="250px" height="300px">
+        <p >无人系统</p>
+      </div>
+    </div>
+
+
+  <p><b>如果您对此领域感兴趣并想加入我们的研究, 请联系我(xidong_zhou@163.com)或者张辉老师(zhanghuihby@126.com).谢谢!<b></p>
+</td>
+</tr>
+</table>
+<footer class="footer">
+  <div>
+    <p>National Engineering Research Center of Robot Vision Perception and Control Technology (RVC)</p>
+    <p>Hunan University</p>
+    <p>Changsha, Hunan, P.R. China</p>
+  </div>
+  <div>
+    <p>Copyright  RVC 2023</p>
+    <p>Above Site All right reserved.</p>
+  </div>
+</footer>
+
+  <script>
+    var doc = document
+    function addScroll ()　{
+      var menu = doc.getElementsByClassName('menu-content')[0]
+      const top = doc.documentElement.scrollTop
+      menu.style= `margin-top: ${top}px` 
+    }
+
+    doc.addEventListener('scroll', addScroll.bind(this))
+  </script>
+</body>
+</html>
